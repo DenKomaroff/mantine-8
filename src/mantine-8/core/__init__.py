@@ -1,2 +1,2 @@
-from .mantine import MantineComponent
+from .mantine import MantineComponent, SeleneElement
 from .simple import SimpleElement
