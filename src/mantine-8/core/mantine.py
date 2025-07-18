@@ -4,6 +4,7 @@ from selene.elements import SeleneElement
 from selene.support import by
 from selene.support.jquery_style_selectors import s
 
+
 class MantineComponent:
 
     @property
@@ -23,7 +24,7 @@ class MantineComponent:
             name = self.name
         return f'mantine-{name}-{level.lower()}'
 
-    def get_element_by_link(self, value: str, start: SeleneElement = None, root = 'root') -> None:
+    def get_element_by_link(self, value: str, start: SeleneElement = None, root='root') -> None:
 
         self.linkElement = s(by.xpath(
             f'(//*[@{self.link_attribute}="{value}"])'))
@@ -42,7 +43,6 @@ class MantineComponent:
     def get_element_by_placeholder(self):
         pass
 
-    # def __init__(self, link: str = None, start: SeleneElement = None, element: SeleneElement = None, root = 'root') -> None:
     def __init__(self, **kwargs) -> None:
         if self.name is None:
             self._name = 'Component'
@@ -59,19 +59,3 @@ class MantineComponent:
 
     def click(self):
         self.rootElement.click()
-
-
-class SimpleElement:
-
-    linkAttribute: str = 'data-test-id'
-
-    def __init__(self, link: str = None) -> None:
-        if link is not None:
-            self.linkElement = s(by.xpath(f'(//*[@{self.linkAttribute}="{link}"])'))
-        else:
-            raise ValueError('You should pass a link')
-
-    def click(self):
-        self.linkElement.click()
-
-
