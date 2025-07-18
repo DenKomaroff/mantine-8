@@ -1,0 +1,1 @@
+from .mantine import MantineComponent
